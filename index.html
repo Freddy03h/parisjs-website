@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="css/reset.css">
         <link rel="stylesheet" type="text/css" href="css/style.css">
         <link rel="stylesheet" type="text/css" href="css/font.css">
+        <meta name="viewport" content="initial-scale=1.0">
     </head>
 
     <body>
@@ -27,7 +28,7 @@
                         <img src="images/logo.png" alt="ParisJS.org - Home">
                     </a>
                 </div>
-                <div class="text">- Event-driven community about Javascript</div>
+                <div class="text">Event-driven community about Javascript</div>
             </div>
         </header>
 
@@ -147,7 +148,9 @@
 
             <div id="twitter">
                 <h2>Twitter @ParisJS</h2>
-                <a class="twitter-timeline" href="https://twitter.com/parisjs" data-widget-id="386687638675005440">Tweets by @parisjs</a>
+                <div class="twitter-timeline-container">
+                    <a class="twitter-timeline" href="https://twitter.com/parisjs" data-widget-id="386687638675005440">Tweets by @parisjs</a>
+                </div>
                 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
             </div>
 
@@ -162,11 +165,8 @@
 
         <section id="footer">
             <div class="container">
-                <ul>
-                    <li class="github"><img src="images/ico_github.png" alt="Fork me on GitHub"><a href="https://github.com/parisjs/parisjs-website">Fork me on GitHub</a></li>
-                    <li class="noxdzine">-</li>
-                    <li class="noxdzine"><a href="https://twitter.com/Noxdzine">Design by @Noxdzine</a></li>
-                </ul>
+                <div class="github"><img src="images/ico_github.png" alt="Fork me on GitHub"><a href="https://github.com/parisjs/parisjs-website">Fork me on GitHub</a></div>
+                <div class="noxdzine"><a href="https://twitter.com/Noxdzine">Design by @Noxdzine</a></div>
             </div>
         </section>
 

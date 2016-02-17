@@ -7,53 +7,53 @@ body{
 	color:#a6a6a6;
 }
 .container{
-	width:960px;
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 960px;
 	margin: 0 auto;
 }
+
 header{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	font-family: "Andale Mono", Helvetica, Arial, Serif;
 	font-size: 14px;
-	width:100%;
-	min-width:965px;
-	height:60px;
+	min-height:60px;
 	background:#e14680;
 	padding: 12px 0;
 	color: #fff;
 	border-bottom:1px solid #e86599;
 }
-#header{
-	min-width:965px;
-	height: 432px;
-	width:100%;
-	background:#271f46 url(../images/bg_header.png) no-repeat top center;
+header .container {
+	padding: 0 15px;
+	align-items: center;
+	box-sizing: border-box;
 }
-header #logo{
-	float: left;
+#logo {
+	padding-top: 5px; /* png not verticaly centered */
+	padding-right: 12px;
 }
 header .text{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	padding: 12px;
-	float: left;
+}
+
+
+#header{
+	background:#271f46 url(../images/bg_header.png) no-repeat top center;
+}
+#header .container {
+	justify-content: flex-end;
 }
 #header .logo_header{
 	position:absolute;
 	top: 130px;
 }
 .next_meetup{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	font-family: "Myriad Pro", Helvetica, Arial, Serif;
-	padding: 80px 25px 10px 25px;
-	float:right;
-	width: 350px;
-	height: 432px;
+	padding: 80px 25px;
+	max-width: 350px;
 	background:rgba(255,255,255,.07);
+	flex-grow: 1;
 }
 .next_meetup h2{
 	color:#fff;
@@ -72,8 +72,6 @@ header .text{
 }
 .next_meetup a{
 	margin: 10px 0 0 0;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	color:#9591a4;
 	font-size: 14px;
@@ -82,8 +80,6 @@ header .text{
 	display:block;
 }
 .next_meetup a.inscription{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	height:40px;
 	padding:13px;
@@ -132,24 +128,26 @@ header .text{
 }
 
 #navigation{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	padding: 5px;
-	height: 66px;
-	width:100%;
-	min-width:965px;
+	padding: 5px 15px;
+	min-height: 66px;
 	background:#221d37;
+}
+#navigation .container {
+	box-sizing: border-box;
+	padding: 0 15px;
 }
 #navigation span{
 	margin: 9px 0;
-	float: left;
 	font-family: "Andale Mono", Helvetica, Arial, Serif;
 	color:#f4d9ab;
 	font-size:30px;
 }
+#navigation ul{
+	display: flex;
+}
 #navigation li {
-	float: left;
+	/*float: left;*/
 	color:#fff;
 	padding:0 5px;
 	margin:12px;
@@ -179,30 +177,33 @@ header .text{
 	transition: all 0.3s ease-in-out;
 }
 
+@media (max-width: 959px) {
+	#header {
+		background-size: cover;
+	}
+  #navigation ul{
+		flex-direction: column;
+		width: 100%;
+  }
+}
+
 #content{
-	width: 610px;
-	min-height: 390px;
-	padding: 15px 35px 15px 0;
+	padding: 15px;
 	background: url(../images/shadow_sidbar.png) no-repeat top right;
-	float: left;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+
+	flex: 1 1 610px;
 }
 #sidebar{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 15px;
-	width: 340px;
-	float: left;
+
+	flex: 1 1 340px;
 }
 #about, #proposal, #communities, #host, #jobs {
 	margin: 15px 0 0;
 }
 #about p, #proposal p, #communities p, #host p, #jobs p {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 12px 10px;
 	font-size:14px;
@@ -221,6 +222,9 @@ header .text{
 #twitter{
 	margin: 15px 0 0;
 }
+.twitter-timeline-container {
+	max-width: 320px;
+}
 #twitter li{
 	border-left: 3px solid #f1f1f1;
 	-webkit-box-sizing: border-box;
@@ -236,8 +240,6 @@ header .text{
 	font-size: 14px;
 }
 #twitter p {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 3px 12px 0;
 	font-size:14px;
@@ -256,8 +258,6 @@ header .text{
 	color: #71669c;
 }
 #sidebar h2{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 2px 0;
 	border-bottom: 1px solid #e3e3e2;
@@ -276,12 +276,8 @@ header .text{
 #sidebar p strong{
 	font-weight: bold;
 }
-#content{
-	padding: 30px 0;
-}
 
 #content h2{
-	width: 570px;
 	padding: 0 0 5px 0;
 	border-bottom: 1px solid #e3e3e2;
 	font-family: "MuseoSlab500", Helvetica, Arial, Serif;
@@ -302,16 +298,12 @@ header .text{
 	height: 72px;
 }
 #meetups ul{
-	width: 590px;
-	float:left;
 	margin: 7px 5px;
 }
 .meetup{
 	margin: 12px 0;
 }
 .meetup .meetup-title{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 0 0 0 22px;
 	color:#551A8B;
@@ -321,9 +313,14 @@ header .text{
 .meetup a:hover{
 	text-decoration:underline;
 }
+#meetups .meetup-content > li{
+	padding: 1px 0;
+}
+#meetups .meetup-content ul{
+	overflow: auto;
+	margin: 6px 5px;
+}
 li.titleTalk{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 3px 0 0 115px;
 	background: url(../images/ico_talk.png) no-repeat 95px 2px;
@@ -335,8 +332,6 @@ li.titleTalk{
 	font-size: 14px;
 }
 .descTalk{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 7px 0 0 95px;
 }
@@ -349,8 +344,6 @@ li.titleTalk{
 	text-decoration: underline;
 }
 .authorTalk{
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 	padding: 3px 0 0 115px;
 }
@@ -358,47 +351,41 @@ li.titleTalk{
 	color:#e66a98;
 	text-decoration: none;
 }
+
 #footer{
 	background:#4b4b4b;
-	width: 100%;
 	height: 75px;
-	clear:both;
 	border-top: 3px solid #858585;
+
+	display: flex;
+	align-items: center;
 }
-#footer .container ul{
-	float: right;
-}
-#footer .container li{
+#footer .container {
+	justify-content: flex-end;
+	align-items: baseline;
 	font-size:12px;
-	float: left;
-	margin: 20px 0 0 10px;
+	padding:0 15px;
+	flex: 1 1 960px;
 }
-#footer .container li img{
-	position: relative;
-	top: 8px;
-	left: -5px;
+#footer .container img{
+	vertical-align: middle;
+	margin-right: 5px;
 }
-#footer .container li a{
+#footer .container a{
 	text-decoration: none;
 	color: #a6a6a6;
 }
 .github{
 	opacity: 0.7;
-	-webkit-transition: all 0.3s ease-in-out;
-	-moz-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
+	transition: opacity 0.3s ease-in-out;
 }
 .github:hover{
 	opacity: 1;
 }
 .noxdzine{
 	opacity: 0.7;
-	-webkit-transition: all 0.3s ease-in-out;
-	-moz-transition: all 0.3s ease-in-out;
-	-o-transition: all 0.3s ease-in-out;
-	transition: all 0.3s ease-in-out;
-	padding: 15px 0;
+	transition: opacity 0.3s ease-in-out;
+	margin-left: 20px;
 }
 .noxdzine:hover{
 	opacity: 1;
